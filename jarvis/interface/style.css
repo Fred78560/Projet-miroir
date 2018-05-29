@@ -1,0 +1,302 @@
+html {
+			background-color:white;
+		}
+		
+body{
+	font-family: "Roboto", sans-serif;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+/*CSS matin.php*/
+.carre{
+	height:980px;
+	width: auto;
+	border:4px solid #ffffff;
+	overflow:hidden;
+}
+
+#sphere{/*Coeur*/
+	position: fixed;
+	left: 15px;
+	top: 200px;
+}
+
+#hr{
+	position: absolute;
+	right: 30px;
+	top: 5px;
+	font-size: 600%;
+	font-weight: 100%;
+}
+
+#date{
+	position: absolute;
+	right: 200px;
+	top: 100px;
+}
+#meteo{
+	position: fixed;
+	left: 5px;
+	top: 100px;
+}
+
+#calendrier{
+	position: fixed;
+	right: 20px;
+	top: 170px;
+}
+
+#alim{
+	position: fixed;
+	right: 400px;
+	top: 195px;
+}
+
+#rappel{
+	position: fixed;
+	right:20px;
+	bottom :35px;
+}
+
+/* CSS meteo */
+		.currentPosition{
+			width:300px;
+			height:100%;
+			margin-left:auto;
+			margin-right:auto;
+			margin-top:20px;	
+			margin-bottom:20px;
+				
+		}
+		h2{
+			background-color:BLACK;
+			color:white;
+			font-family:arial;
+			font-size:24px;
+			text-align:center;
+			border-bottom:3px solid WHITE;
+			margin:-10px;
+			margin-bottom:10px;
+		}
+		h3{
+			color:WHITE;
+			font-family:arial;
+			font-size:25px;
+			float:left;
+			width: 165px;
+			text-align: center;	
+		}
+		h4{
+			color:WHITE;
+			font-family:arial;
+			font-size:24px;
+			width:300px;
+			text-align:center;
+			padding-top:80px;
+		}
+		h5{
+			color:WHITE;
+			font-family:arial;
+			font-size:18px;
+			width:300px;
+			text-align:center;
+			margin-top:-10px;
+		}
+		p{
+			color:WHITE;
+			font-family:arial;
+			font-size:16px;
+			width:300px;
+			text-align:center;
+			margin-top:-25px;
+			margin-bottom:20px;
+		}
+		img{
+			float:left;			
+		}
+		select{
+			width:300px;	
+			display: block;
+			margin-left: auto;
+			margin-right: auto;			
+		}
+		a{
+
+			text-align:center;
+			width:100%;
+			min-width:300px;
+			text-decoration:none;
+			color:white;
+			font-weight:bold;
+		}
+		a:hover{
+			color:WHITE;
+		}
+
+/* CSS date.php */
+p1{
+	position: fixed;
+	font-size: 50px;
+	right: 30px;
+	top: 105px;
+}
+
+#today{
+	position: fixed;
+	right: 30px;
+	top: 150px;
+}
+
+/* CSS rappel.php */
+.pos{
+	margin:5px;
+	padding-left: 5px;
+	width: 470px;
+	height:300px;
+	border:2px solid #ffffff;
+	background-color:#000000;
+	color:#fff;
+	font-size:14px;
+	overflow:hidden;
+	line-height:30px;
+}
+
+/* CSS calendrier.php */
+#tomorrow1{
+	position: fixed;
+	right: 30px;
+	top: 170px;
+}
+
+#tomorrow2{
+	position: fixed;
+	right: 30px;
+	top: 260px;
+}
+
+.place{
+	margin:5px;
+	padding-left: 5px;
+	width: 300px;
+	height:238px;
+	border:2px solid #ffffff;
+	background-color:#000000;
+	color:#fff;
+	font-size:14px;
+	overflow:hidden;
+	line-height:30px;
+}
+
+/* CSS pourcentage_alim.php */
+#tb{
+	border-collapse:collapse;
+	border-style:solid;
+	border-color:white;
+}
+table{
+	border-collapse:collapse;
+	border-style:solid;
+	border-color:black;
+}
+
+h1{
+	font-size: 12px;
+	color: white;
+}
+
+#recette{
+	position:fixed;
+	left: 330px;
+	top: 25px;
+}
+
+/* CSS minuteur.php */
+#compt {
+	color:white;
+	font-size : 300px;
+}	
+		
+#global{
+	position: relative; /* on positionne le conteneur */
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	top: 250px;
+}
+
+/* CSS meteo */
+		.positionMiami, .positionLongueuil, .currentPosition{
+			border:3px solid black;
+			width:300px;
+			height:100%;
+			margin-left:auto;
+			margin-right:auto;
+			margin-top:20px;	
+			margin-bottom:20px;
+				
+		}
+		h2{
+			background-color:BLACK;
+			color:white;
+			font-family:arial;
+			font-size:24px;
+			text-align:center;
+			border-bottom:3px solid WHITE;
+			margin:-10px;
+			margin-bottom:10px;
+		}
+		h3{
+			color:WHITE;
+			font-family:arial;
+			font-size:25px;
+			float:left;
+			width: 165px;
+			text-align: center;	
+		}
+		h4{
+			color:WHITE;
+			font-family:arial;
+			font-size:24px;
+			width:300px;
+			text-align:center;
+			padding-top:80px;
+		}
+		h5{
+			color:WHITE;
+			font-family:arial;
+			font-size:18px;
+			width:300px;
+			text-align:center;
+			margin-top:-10px;
+		}
+		p{
+			color:WHITE;
+			font-family:arial;
+			font-size:16px;
+			width:300px;
+			text-align:center;
+			margin-top:-25px;
+			margin-bottom:20px;
+		}
+		img{
+			float:left;			
+		}
+		select{
+			width:300px;	
+			display: block;
+			margin-left: auto;
+			margin-right: auto;			
+		}
+		a{
+
+			text-align:center;
+			width:100%;
+			min-width:300px;
+			text-decoration:none;
+			color:white;
+			font-weight:bold;
+		}
+		a:hover{
+			color:WHITE;
+		}

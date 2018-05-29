@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+		<meta name="viewport" content="width=device-width">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>		
+		
+		<script>
+			document.addEventListener("DOMContentLoaded", function(event) { 
+			 	if (location.protocol != 'https:')				{
+				 location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+				}
+			});
+		
+			jQuery(document).ready(function($) {
+				var maLatitude;
+				var maLongitude;	
+			
+				if (navigator.geolocation)
+					navigator.geolocation.getCurrentPosition(showPosition);
+				else
+				  alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");				
+			});
+				function selectForm(event) {
+					var monChoix = (this.options[this.selectedIndex].text);
+					switch(monChoix) {
+						case "Position actuelle":
+							getMeteo();
+							$(".positionLongueuil").remove();
+							$(".positionMiami").remove();
+						  break;
+						case "Longueuil":
+							 getMeteoLongueuil();
+							 $(".currentPosition").remove();
+							 $(".positionMiami").remove();
+						  break;
+						case "Miami":
+							getMeteoMiami();
+							$(".positionLongueuil").remove();
+							$(".currentPosition").remove();
+						  break;	
+						case "Voir le Tutoriel":
+							window.location = "https://anthonycorriveau.com/tuto/tuto.html";							
+							break;
+						default:
+							alert("aucune choix disponible!");						
+					}					
+				}
+				function showPosition(position){
+					maLatitude= position.coords.latitude;
+					maLongitude= position.coords.longitude;	
+					getMeteo();					
+				}			  
+				function getMeteo(){
+					$.ajax({
+						url : "https://api.wunderground.com/api/aa0f9da35262fe53/geolookup/conditions/lang:FC/q/"+maLatitude+","+maLongitude+".json",
+						dataType : "jsonp",
+						success : function(parsed_json) {
+							var location = parsed_json['location']['city'];
+							var temp_c = parsed_json['current_observation']['temp_c'] + "°C";
+							var uneimage = parsed_json['current_observation']['icon_url'];
+							var untitle = parsed_json['current_observation']['icon'];
+							var directionVent = parsed_json['current_observation']['wind_dir'];
+							var vitesseVent= parsed_json['current_observation']['wind_kph']+ " km/h";
+							var weather = parsed_json['current_observation']['weather'];
+							var tempRessentie = parsed_json['current_observation']['feelslike_c'] + "°C";
+							var visibilityKM = parsed_json['current_observation']['visibility_km'] + " km";							
+							$("body").append("<div class='currentPosition'><h2>" + location + "</h2> <div style='margin-top:13px;'> <h3>" + temp_c + "</h3><img height='80px' width='80px' src='"+uneimage+"' alt='"+untitle+"' title='"+weather+"'/></div><h4>"+weather+"</h4><br /><h5>Température ressentie</h5><p>"+tempRessentie+"</p><h5>Visibilité</h5><p>"+visibilityKM+"</p><h5>Direction du vent</h5><p>"+directionVent+"</p><h5>Vitesse du vent</h5><p>"+vitesseVent+"</p></div>");	
+							}
+					});
+				}
+				function getMeteoLongueuil(){
+					jQuery(document).ready(function($) {
+						$.ajax({
+						  url : "https://api.wunderground.com/api/aa0f9da35262fe53/geolookup/conditions/lang:FC/q/Quebec/Longueuil.json",
+						  dataType : "jsonp",
+						  success : function(parsed_json) {
+							var location = parsed_json['location']['city'];
+							var temp_c = parsed_json['current_observation']['temp_c'];
+							var uneimage = parsed_json['current_observation']['icon_url'];
+							var untitle = parsed_json['current_observation']['icon'];
+							var directionVent = parsed_json['current_observation']['wind_dir'];
+							var vitesseVent= parsed_json['current_observation']['wind_kph']+ " km/h";
+							var weather = parsed_json['current_observation']['weather'];
+							var tempRessentie = parsed_json['current_observation']['feelslike_c'] + "°C";
+							var visibilityKM = parsed_json['current_observation']['visibility_km'] + " km";	
+							$("body").append("<div class='positionLongueuil'><h2>" + location + "</h2> <div style='margin-top:13px;'> <h3>" + temp_c + " °C </h3><img height='80px' width='80px' src='"+uneimage+"' alt='"+untitle+"' title='"+weather+"'/></div><h4>"+weather+"</h4><br /><h5>Température ressentie</h5><p>"+tempRessentie+"</p><h5>Visibilité</h5><p>"+visibilityKM+"</p><h5>Direction du vent</h5><p>"+directionVent+"</p><h5>Vitesse du vent</h5><p>"+vitesseVent+"</p></div>");	
+							}
+						});
+					});
+				}
+				function getMeteoMiami(){
+					jQuery(document).ready(function($) {
+						$.ajax({
+						  url : "https://api.wunderground.com/api/aa0f9da35262fe53/geolookup/conditions/lang:FC/q/US/Miami.json",
+						  dataType : "jsonp",
+						  success : function(parsed_json) {
+							var location = parsed_json['location']['city'];
+							var temp_c = parsed_json['current_observation']['temp_c'];
+							var uneimage = parsed_json['current_observation']['icon_url'];
+							var untitle = parsed_json['current_observation']['icon'];
+							var directionVent = parsed_json['current_observation']['wind_dir'];
+							var vitesseVent= parsed_json['current_observation']['wind_kph']+ " km/h";
+							var weather = parsed_json['current_observation']['weather'];
+							var tempRessentie = parsed_json['current_observation']['feelslike_c'] + "°C";
+							var visibilityKM = parsed_json['current_observation']['visibility_km'] + " km";	
+							$("body").append("<div class='positionMiami'><h2>" + location + "</h2> <div style='margin-top:13px;'> <h3>" + temp_c + " °C </h3><img height='80px' width='80px' src='"+uneimage+"' alt='"+untitle+"' title='"+weather+"'/></div><h4>"+weather+"</h4><br /><h5>Température ressentie</h5><p>"+tempRessentie+"</p><h5>Visibilité</h5><p>"+visibilityKM+"</p><h5>Direction du vent</h5><p>"+directionVent+"</p><h5>Vitesse du vent</h5><p>"+vitesseVent+"</p></div>");	
+						  }
+						});
+					});
+				}
+		</script>
+		<style type="text/css">
+		html {
+			background-color:BLACK;
+		}
+		
+		h3{
+			color:WHITE;
+			font-family:arial;
+			font-size:25px;
+			float:left;
+			width: 165px;
+			text-align: center;	
+		}
+		h4{
+			color:WHITE;
+			font-family:arial;
+			font-size:20px;
+			width:300px;
+			text-align:center;
+			padding-top:80px;
+		}
+		h5{
+			color:WHITE;
+			font-family:arial;
+			font-size:18px;
+			width:300px;
+			text-align:center;
+			margin-top:-10px;
+		}
+		p{
+			color:WHITE;
+			font-family:arial;
+			font-size:15px;
+			width:300px;
+			text-align:center;
+			margin-top:-25px;
+			margin-bottom:20px;
+		}
+		img{
+			float:left;			
+		}
+		select{
+			width:300px;	
+			display: block;
+			margin-left: auto;
+			margin-right: auto;			
+		}
+		a{
+
+			text-align:center;
+			width:100%;
+			min-width:300px;
+			text-decoration:none;
+			color:white;
+			font-weight:bold;
+		}
+		a:hover{
+			color:WHITE;
+		}
+		</style>
+	</head> 
+	<body> 		
+		
+	</body> 
+</html>
